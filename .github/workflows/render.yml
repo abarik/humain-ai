@@ -23,5 +23,5 @@ jobs:
       - name: Upload rendered site as artifact
         uses: actions/upload-artifact@v4
         with:
-          name: quarto-site
+          name: humain-ai
           path: _site/
