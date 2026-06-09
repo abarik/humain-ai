@@ -20,27 +20,32 @@ jobs:
       - name: Render Quarto website
         run: quarto render
 
+      - name: Debug SSH reachability
+        run: |
+          echo "DNS lookup:"
+          getent hosts psycho.unideb.hu || true
+
+          echo "Testing port 22:"
+          nc -vz psycho.unideb.hu 22 || true
+
+          echo "Trying ssh-keyscan:"
+          ssh-keyscan -T 30 psycho.unideb.hu || true
+
       - name: Set up SSH
         run: |
           set -e
-          echo "HOME=$HOME"
           mkdir -p "$HOME/.ssh"
           printf '%s\n' "${{ secrets.DEPLOY_KEY }}" > "$HOME/.ssh/id_ed25519"
           chmod 600 "$HOME/.ssh/id_ed25519"
-      
-          echo "Checking private key file..."
-          test -s "$HOME/.ssh/id_ed25519"
-      
-          echo "Adding host key..."
-          ssh-keyscan -T 20 -H "${{ secrets.DEPLOY_HOST }}" >> "$HOME/.ssh/known_hosts"
-      
-          echo "Testing SSH connection..."
+
+          ssh-keyscan -T 30 -H psycho.unideb.hu >> "$HOME/.ssh/known_hosts"
+
           ssh -i "$HOME/.ssh/id_ed25519" \
             -o StrictHostKeyChecking=yes \
             -o BatchMode=yes \
-            "${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}" \
+            deploy@psycho.unideb.hu \
             "echo SSH connection OK"
-
+            
       - name: Deploy to Apache directory
         run: |
           rsync -avz --delete _site/ \
