@@ -1,0 +1,26 @@
+project:
+  type: website
+  
+
+website:
+  page-footer: 
+    background: light
+    left: "Copyright 2026, Ember--MI Kapcsolatok Kutatócsoport" 
+    right: 
+      - icon: github
+        href: https://github.com/abarik/humain-ai
+      - icon: bluesky 
+        href: https://humain-ai.arts.unideb.hu
+  back-to-top-navigation: true
+  site-url: https://humain-ai.arts.unideb.hu
+  title: "Ember--MI"
+  
+output-dir: _site
+
+format:
+  html:
+    theme:
+      - cosmo
+      - brand
+    css: styles.css
+    toc: true
