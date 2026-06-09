@@ -22,10 +22,24 @@ jobs:
 
       - name: Set up SSH
         run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.DEPLOY_KEY }}" > ~/.ssh/id_ed25519
-          chmod 600 ~/.ssh/id_ed25519
-          ssh-keyscan -H "${{ secrets.DEPLOY_HOST }}" >> ~/.ssh/known_hosts
+          set -e
+          echo "HOME=$HOME"
+          mkdir -p "$HOME/.ssh"
+          printf '%s\n' "${{ secrets.DEPLOY_KEY }}" > "$HOME/.ssh/id_ed25519"
+          chmod 600 "$HOME/.ssh/id_ed25519"
+      
+          echo "Checking private key file..."
+          test -s "$HOME/.ssh/id_ed25519"
+      
+          echo "Adding host key..."
+          ssh-keyscan -T 20 -H "${{ secrets.DEPLOY_HOST }}" >> "$HOME/.ssh/known_hosts"
+      
+          echo "Testing SSH connection..."
+          ssh -i "$HOME/.ssh/id_ed25519" \
+            -o StrictHostKeyChecking=yes \
+            -o BatchMode=yes \
+            "${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}" \
+            "echo SSH connection OK"
 
       - name: Deploy to Apache directory
         run: |
