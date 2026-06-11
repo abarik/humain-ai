@@ -26,11 +26,11 @@ jobs:
           name: humain-ai-site
           path: _site/
           retention-days: 7
+          
       - name: Trigger deploy on psycho.unideb.hu
         run: |
-          curl -i -sS -X POST "https://psycho.unideb.hu/deploy-humain-ai/deploy.php" \
+          curl -fsS -X POST "https://psycho.unideb.hu/deploy-humain-ai/deploy.php" \
             -H "Content-Type: application/json" \
             -H "X-Deploy-Token: ${{ secrets.PSYCHO_DEPLOY_WEBHOOK_SECRET }}" \
-            -d '{"run_id": "${{ github.run_id }}"}'
-              
-               
+            -d '{"run_id": "${{ github.run_id }}"}'              
+                     
