@@ -26,8 +26,7 @@ jobs:
           name: humain-ai-site
           path: _site/
           retention-days: 7
-
-     - name: Trigger deploy on psycho.unideb.hu
+      - name: Trigger deploy on psycho.unideb.hu
         run: |
           curl -i -sS -X POST "https://psycho.unideb.hu/deploy-humain-ai/deploy.php" \
             -H "Content-Type: application/json" \
