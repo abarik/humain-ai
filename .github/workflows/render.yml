@@ -35,4 +35,3 @@ jobs:
             -d '{
               "run_id": "${{ github.run_id }}"
             }'
-            
