@@ -25,6 +25,7 @@ website:
     search: true
     contents:
       - introduction.qmd
+      - mi_eszkozok_iras.qmd
     
 output-dir: _site
 
