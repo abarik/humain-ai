@@ -1,4 +1,4 @@
-name: Render and deploy Quarto site
+name: Render and trigger server deploy
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  render-and-deploy:
+  render:
     runs-on: ubuntu-latest
 
     steps:
@@ -20,33 +20,18 @@ jobs:
       - name: Render Quarto website
         run: quarto render
 
-      - name: Debug SSH reachability
+      - name: Upload rendered site as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: humain-ai-site
+          path: _site/
+          retention-days: 7
+
+      - name: Trigger deploy on psycho.unideb.hu
         run: |
-          echo "DNS lookup:"
-          getent hosts psycho.unideb.hu || true
-
-          echo "Testing port 22:"
-          nc -vz psycho.unideb.hu 22 || true
-
-          echo "Trying ssh-keyscan:"
-          ssh-keyscan -T 30 psycho.unideb.hu || true
-
-      - name: Set up SSH
-        run: |
-          set -e
-          mkdir -p "$HOME/.ssh"
-          printf '%s\n' "${{ secrets.DEPLOY_KEY }}" > "$HOME/.ssh/id_ed25519"
-          chmod 600 "$HOME/.ssh/id_ed25519"
-
-          ssh-keyscan -T 30 -H psycho.unideb.hu >> "$HOME/.ssh/known_hosts"
-
-          ssh -i "$HOME/.ssh/id_ed25519" \
-            -o StrictHostKeyChecking=yes \
-            -o BatchMode=yes \
-            deploy@psycho.unideb.hu \
-            "echo SSH connection OK"
-            
-      - name: Deploy to Apache directory
-        run: |
-          rsync -avz --delete _site/ \
-            "${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:${{ secrets.DEPLOY_PATH }}"
+          curl -fsS -X POST "https://psycho.unideb.hu/deploy-humain-ai/deploy.php" \
+            -H "Content-Type: application/json" \
+            -H "X-Deploy-Token: ${{ secrets.PSYCHO_DEPLOY_WEBHOOK_SECRET }}" \
+            -d '{
+              "run_id": "${{ github.run_id }}"
+            }'
