@@ -6,7 +6,7 @@ project:
 website:
   page-footer: 
     background: light
-    left: "Copyright 2026. Ember--MI Kapcsolatok Kutatócsoport" 
+    left: "Copyright 2026. Ember--MI Kapcsolatok Kutatócsoport / Human–AI Relations Research Group" 
     right: 
       - icon: github
         href: https://github.com/abarik/humain-ai
