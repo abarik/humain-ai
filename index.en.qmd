@@ -1,0 +1,70 @@
+---
+title: "Human–AI Relations Research Group"
+---
+
+Official, full name of the research group: **Human– Artificial Intelligence Relations Research Group**
+
+The primary objective of the research group is to examine the individual and social consequences
+of the rapid spread of artificial intelligence (AI) – with particular emphasis on generative AI and
+large language models (LLMs) – from a psychological perspective. Our focus is on everyday
+interactions with various content-generating systems and how this technology influences thinking,
+decision-making processes, learning and teaching, work, social relationships, psychological
+diagnostic methods, and psychotherapy. Our goal is to explore and understand the psychological
+implications of generative AI, the changes in human cognition, emotions, and behavior that occur
+when interacting with AI systems, as well as their applications in research and practice.
+
+# Main research areas and activities:
+
+- Social relationships and the anthropomorphization of AI (chatbots as social and supportive
+partners, perception and interpretation of AI systems, attitudes toward them, mechanisms of
+anthropomorphization, perceived social support, therapeutic chatbots, issues related to
+guidelines in helping professions)
+- Trust, persuasion, and the information environment (technology adoption and related
+attitudes, empirical examination of cognitive and emotional effects, information processing,
+identification of psychological protective factors against disinformation, credibility
+perception, source-critical analysis of AI-generated content, management of hallucinations)
+- Generative AI in education, research, and skill development (personalized learning support,
+academic integrity, AI literacy, development of critical thinking and learning strategies,
+possibilities for educational implementation and their impact assessment, use as a research
+assistant)
+- Organizational and workplace applications (generative AI as a coworker, sense of
+responsibility, perceived control, decision support, technostress)
+- Ethics, bias, vulnerable user groups (ethical dilemmas, biases in generative systems,
+transparency, addictive usage patterns, studies on specific target groups – such as differences
+related to age, digital competence, and psychological characteristics [e.g., individuals with
+narcissistic personality disorder], AI-related phobias and irrational fears)
+ 
+-  Diagnostic and psychological measures and assessments supported by generative AI (mental
+health support, analysis of measuring instruments, qualitative data analysis, pattern
+recognition)
+
+# Methodological approach:
+
+The research group operates within a multidisciplinary framework: drawing on theoretical
+perspectives from cognitive and social psychology, clinical psychology, education, and the
+broader social sciences. Our mixed-methods approach encompasses a wide range of
+methodologies, from psychological experiments to questionnaire-based, longitudinal, and
+qualitative methods, as well as computational content and text analysis. A key priority of the group
+is the development, adaptation, and validation of new measurement instruments, alongside the
+evaluation of interventions (e.g., brief training programs and educational modules), with a focus
+on the rapid practical applicability of research findings.
+
+# Research group leaders:
+
+- Dr. Kálmán Abari – assistant professor
+- Szilvia Hujber-Mitru – assistant lecturer
+
+# Research group members:
+
+- Dr. Tünde Éva Polonyi – associate professor
+- Dr. Anita Szemán-Nagy – associate professor
+- Lilla Kegyes – assistant lecturer
+- Viktor Havan – MA student in Psychology
+- Kevin Dominik Kiss – MA student in Psychology
+- Panna Lengyel – MA student in Psychology
+- Letícia Lengyel – BA student in Psychology
+- Rishona Koshy – BA student in psychology
+
+# Research group contact information:
+
+- hujber-mitru.szilvia@arts.unideb.hu

@@ -1,0 +1,53 @@
+project:
+  type: website
+  
+
+
+website:
+  page-footer: 
+    background: light
+    left: "Copyright 2026. Ember--MI Kapcsolatok Kutatócsoport" 
+    right: 
+      - icon: github
+        href: https://github.com/abarik/humain-ai
+      - icon: bluesky 
+        href: https://engage.cloud.microsoft/main/groups/eyJfdHlwZSI6Ikdyb3VwIiwiaWQiOiIyNTU5NjU5NzA0MzIifQ/all
+  back-to-top-navigation: true
+  site-url: https://humain-ai.arts.unideb.hu
+  title: "Ember--MI"
+  navbar:
+    background: primary
+    search: true
+    right:
+      - index.qmd
+  sidebar:
+    style: "docked"
+    search: true
+    contents:
+      - introduction.qmd
+    
+output-dir: _site
+
+format:
+  html:
+    theme:
+      - cosmo
+      - brand
+    css: styles.css
+    toc: true
+
+
+babelquarto:
+  languagelinks: navbar
+  languagecodes:
+  - name: en
+    text: "English version"
+  - name: hu
+    text: "Magyar verzió"
+  mainlanguage: 'hu'
+  languages: ['en']
+title-en: "Human--AI"
+description-en: description in en
+author-en: author in en
+lang: hu
+

@@ -51,6 +51,7 @@ rsconnect/
 # new ignore
 _site/
 .quarto/
+_build.R
 
 /.quarto/
 **/*.quarto_ipynb

@@ -17,8 +17,14 @@ jobs:
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
-      - name: Render Quarto website
-        run: quarto render
+      - name: Install R packages
+        run: |
+          Rscript -e 'install.packages("babelquarto", repos = c("https://ropensci.r-universe.dev", "https://cloud.r-project.org"))'
+      
+      - name: Render babelquarto website
+        run: |
+          Rscript -e 'babelquarto::render_website(project_path = ".")'
+          
 
       - name: Upload rendered site as artifact
         uses: actions/upload-artifact@v4
